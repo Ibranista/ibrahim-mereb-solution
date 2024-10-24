@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { fetchLorem } from '../slices/lorem.slice';
 
+const tabs = ['1/short', '2/short', '3/short', '4/short'];
+
 function Tabs() {
   const dispatch = useDispatch<AppDispatch>();
-  const [selectedTab, setSelectedTab] = useState<string>('1/short');
+  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]);
 
   const data = useSelector((state: RootState) => state.lorem.data[selectedTab]);
   const status = useSelector((state: RootState) => state.lorem.status[selectedTab]);
@@ -16,13 +18,24 @@ function Tabs() {
   }, [dispatch, selectedTab]);
 
   return (
-    <>
-      <div>
-        <button onClick={() => setSelectedTab('1/short')}>Tab 1 (1/short)</button>
-        <button onClick={() => setSelectedTab('2/short')}>Tab 2 (2/short)</button>
-        <button onClick={() => setSelectedTab('3/short')}>Tab 3 (3/short)</button>
+    <section className="content_container">
+      <div className="tab_container">
+        {tabs.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setSelectedTab(tab)}
+            className={`tabs ${selectedTab === tab ? 'active_tab' : 'tab_item'}`}
+          >
+            Tab {tab.split('/')[0]}
+          </button>
+        ))}
       </div>
-    </>
+      <div className="content">
+        {status === 'loading' && <p>Loading...</p>}
+        {status === 'succeeded' && <p dangerouslySetInnerHTML={{ __html: data }} />}
+        {status === 'failed' && <p>Error: {error}</p>}
+      </div>
+    </section>
   );
 }
 

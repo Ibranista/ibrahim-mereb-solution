@@ -5,7 +5,6 @@
 }
 
 body {
-  /* background-color: black; */
   font-family: "Roboto", sans-serif;
   margin: 20px;
 }
@@ -14,8 +13,45 @@ body {
   width: 960px;
   margin: 0 auto;
 }
+
 /* TODO: Add css here */
+
 .tabs {
+  flex: 1;
+  padding: 15px 0;
+  color: #fefefe;
+  background: #161716;
+  cursor: pointer;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.content {
+  padding-inline: 20px;
+  padding-block: 50px;
+}
+
+.tab_container {
+  display: flex;
+  justify-content: space-around;
+  background: #161716;
+  padding: 10px 0;
+}
+
+
+.tabs:hover {
+  background: #024d6c
+}
+
+.active_tab {
+  background: #024d6c;
+}
+
+p {
+  padding-top: 10px;
 }
 
 @media only screen and (max-width: 960px) {
@@ -25,5 +61,37 @@ body {
 
   .content {
     padding: 50px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  body {
+    background: skyblue;
+  }
+
+  .content_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tab_container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .tabs {
+    padding: 0
+  }
+
+  .content {
+    padding: 20px;
+    grid-column: 2/4;
+  }
+
+}
+
+@media only screen and (max-width:640px) {
+  .content_container {
+    position: relative;
   }
 }
