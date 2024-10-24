@@ -1,6 +1,6 @@
 :root {
   --background-color: #161716;
-  --hover-color: #024d6c;
+  --hover-color: #07597A;
   --text-color: #fefefe;
 }
 
@@ -64,6 +64,21 @@ body {
 
 p {
   padding-top: 10px;
+}
+
+.clear_cache_btn {
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.clear_cache_btn:hover {
+  background: #07597A;
+  color: white;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 @media only screen and (max-width: 960px) {
