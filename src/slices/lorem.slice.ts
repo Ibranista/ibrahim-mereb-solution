@@ -7,12 +7,15 @@ const initialState: ILoremState = {
   error: {},
 };
 
-const url = process.env.REACT_APP_API_URL;
+const productionApiUrl = process.env.REACT_APP_API_URL;
+const environment = process.env.NODE_ENV;
+const isDevelopment = environment === "development";
+
 export const fetchLorem = createAsyncThunk(
   "lorem/fetchLorem",
   async (tab: string, { getState }) => {
     // this is for local
-    // const url = `/api/api/${tab}/short/headers`;
+    const url = `/api`;
     // this is for production
     const state = getState() as RootState;
 
@@ -20,8 +23,10 @@ export const fetchLorem = createAsyncThunk(
       return { tab, data: state.lorem.data[tab] };
     }
 
-    // const response = await fetch(`${url}/${tab}`);
-    const response = await fetch(`${url}/api/${tab}/short/headers/${tab}`);
+    // const response = await fetch(`${url}`);
+    const response = await fetch(
+      `${isDevelopment ? url : productionApiUrl}/api/${tab}/short/headers/1`
+    );
     const data = await response.text();
     return { tab, data };
   }
