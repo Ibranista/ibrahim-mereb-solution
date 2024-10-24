@@ -1,13 +1,8 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
+import { ILoremState } from '../types/state.model';
 
-interface LoremState {
-  data: { [key: string]: string };
-  status: { [key: string]: 'idle' | 'loading' | 'succeeded' | 'failed' };
-  error: { [key: string]: string | null };
-}
-
-const initialState: LoremState = {
+const initialState: ILoremState = {
   data: {},
   status: {},
   error: {},
@@ -16,7 +11,7 @@ const initialState: LoremState = {
 export const fetchLorem = createAsyncThunk(
   'lorem/fetchLorem',
   async (tab: string, { getState }) => {
-    const url = `/api/api/${tab}/headers`;
+    const url = `/api/api/${tab}/link`;
     const state = getState() as RootState;
 
     if (state.lorem.data[tab]) {

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../store';
 import { fetchLorem } from '../slices/lorem.slice';
+import { Spinner } from './Spinner';
 
 const tabs = ['1/short', '2/short', '3/short', '4/short'];
 
@@ -17,6 +18,25 @@ function Tabs() {
     dispatch(fetchLorem(selectedTab));
   }, [dispatch, selectedTab]);
 
+  const renderContent = () => {
+    switch (status) {
+      case 'loading':
+        return (
+          <section className="spinner_container">
+            <div>
+              <Spinner /> Loading...
+            </div>
+          </section>
+        );
+      case 'succeeded':
+        return <article dangerouslySetInnerHTML={{ __html: data }} />;
+      case 'failed':
+        return <article>Sorry, we couldn't fetch the data!</article>;
+      default:
+        return null;
+    }
+  };
+
   return (
     <section className="content_container">
       <div className="tab_container">
@@ -31,9 +51,7 @@ function Tabs() {
         ))}
       </div>
       <div className="content">
-        {status === 'loading' && <p>Loading...</p>}
-        {status === 'succeeded' && <p dangerouslySetInnerHTML={{ __html: data }} />}
-        {status === 'failed' && <p>Error: {error}</p>}
+        {renderContent()}
       </div>
     </section>
   );

@@ -1,3 +1,9 @@
+:root {
+  --background-color: #161716;
+  --hover-color: #024d6c;
+  --text-color: #fefefe;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +13,13 @@
 body {
   font-family: "Roboto", sans-serif;
   margin: 20px;
+}
+
+.spinner_container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -19,8 +32,8 @@ body {
 .tabs {
   flex: 1;
   padding: 15px 0;
-  color: #fefefe;
-  background: #161716;
+  color: var(--text-color);
+  background: var(--background-color);
   cursor: pointer;
   border: none;
   cursor: pointer;
@@ -37,17 +50,16 @@ body {
 .tab_container {
   display: flex;
   justify-content: space-around;
-  background: #161716;
+  background: var(--background-color);
   padding: 10px 0;
 }
 
-
 .tabs:hover {
-  background: #024d6c
+  background: var(--hover-color);
 }
 
 .active_tab {
-  background: #024d6c;
+  background: var(--hover-color);
 }
 
 p {
@@ -77,17 +89,18 @@ p {
   .tab_container {
     flex-direction: column;
     padding: 0;
+    height: 100vh;
+    overflow-y: auto;
   }
 
   .tabs {
-    padding: 0
+    padding: 0;
   }
 
   .content {
     padding: 20px;
     grid-column: 2/4;
   }
-
 }
 
 @media only screen and (max-width:640px) {
