@@ -9,14 +9,12 @@ Welcome to Mereb Technologies, a cutting-edge web development project designed t
 - React.js
 - Redux Toolkit
 - Async Thunk
-- CSS Modules
-- Lodash (for fetching dummy data)
 - Create React App
-- CORS Everywhere
+- cors-anywhere
 
 ## Project Overview
 
-Mereb Technologies is a sample web application designed to demonstrate scalable state management and data fetching techniques. The project implements Redux Toolkit with Async Thunk to efficiently handle asynchronous operations and manage global state.
+This is a sample web test application designed to demonstrate scalable state management and data fetching techniques. The project implements Redux Toolkit with Async Thunk to efficiently handle asynchronous operations and manage global state.
 
 ## Key Features
 
@@ -26,13 +24,9 @@ Mereb Technologies is a sample web application designed to demonstrate scalable 
 
 3. Asynchronous Operations: Async Thunk is implemented to handle asynchronous data fetching and caching.
 
-4. Caching Mechanism: The application implements a caching system to store fetched data locally.
+4. Scalability: The project is structured to be easily expandable, considering future growth and larger projects.
 
-5. Scalability: The project is structured to be easily expandable, considering future growth and larger projects.
-
-6. Styling: CSS Modules are used for component-specific styling, enhancing maintainability and reducing conflicts.
-
-7. Spinner Component: An additional spinner component is implemented to provide visual feedback during loading operations.
+5. Spinner Component: An additional simple spinner component is implemented to provide visual feedback during loading operations.
 
 ## Implementation Details
 
