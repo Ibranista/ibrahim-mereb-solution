@@ -7,12 +7,10 @@ const initialState: ILoremState = {
   error: {},
 };
 
-const apiUrl = process.env.REACT_APP_API_URL;
-
 export const fetchLorem = createAsyncThunk(
   "lorem/fetchLorem",
   async (tab: string, { getState }) => {
-    const url = `${apiUrl}/api/${tab}/short/headers`;
+    const url = `/api/api/${tab}/short/headers`;
     const state = getState() as RootState;
 
     if (state.lorem.data[tab]) {
