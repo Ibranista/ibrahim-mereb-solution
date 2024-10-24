@@ -73,6 +73,7 @@ p {
   border: none;
   font-size: 16px;
   border-radius: 3px;
+  margin-bottom: 24px;
 }
 
 .clear_cache_btn:hover {

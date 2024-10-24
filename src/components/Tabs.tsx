@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from '../store';
 import { clearCache, fetchLorem } from '../slices/lorem.slice';
 import { Spinner } from './Spinner';
 
-const tabs = ['1/short', '2/short', '3/short', '4/short'];
+const tabs = ['1', '2', '3', '4'];
 
 function Tabs() {
   const dispatch = useDispatch<AppDispatch>();
@@ -56,7 +56,7 @@ function Tabs() {
         ))}
       </div>
       <div className="content">
-        <button className="clear_cache_btn" onClick={clearCacheDataHandler}>Clear Cache</button>
+        {data && <button className="clear_cache_btn" onClick={clearCacheDataHandler}>Clear Cache</button>}
         {renderContent()}
       </div>
     </section>

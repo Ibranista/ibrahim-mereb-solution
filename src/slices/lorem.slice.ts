@@ -11,7 +11,7 @@ const initialState: ILoremState = {
 export const fetchLorem = createAsyncThunk(
   'lorem/fetchLorem',
   async (tab: string, { getState }) => {
-    const url = `/api/api/${tab}/link`;
+    const url = `/api/api/${tab}/short/headers`;
     const state = getState() as RootState;
 
     if (state.lorem.data[tab]) {
