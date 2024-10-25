@@ -105,7 +105,7 @@ p {
   .tab_container {
     flex-direction: column;
     padding: 0;
-    height: 100vh;
+    height: 50vh;
     overflow-y: auto;
   }
 
