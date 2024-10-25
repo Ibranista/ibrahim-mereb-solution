@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { ILoremState } from "../types/state.model";
+
 const initialState: ILoremState = {
   data: {},
   status: {},
@@ -10,16 +11,13 @@ const initialState: ILoremState = {
 export const fetchLorem = createAsyncThunk(
   "lorem/fetchLorem",
   async (tab: string, { getState }) => {
-    // this is for local
     const url = `/api/api/${tab}/short/headers/1`;
-    // this is for production
     const state = getState() as RootState;
 
     if (state.lorem.data[tab]) {
       return { tab, data: state.lorem.data[tab] };
     }
 
-    // const response = await fetch(`${url}`);
     const response = await fetch(`${url}/`);
     const data = await response.text();
     return { tab, data };
@@ -30,9 +28,10 @@ const loremSlice = createSlice({
   name: "lorem",
   initialState,
   reducers: {
-    clearCache: (state, action: PayloadAction<string>) => {
-      delete state.data[action.payload];
-      state.status[action.payload] = "idle";
+    clearCache: (state) => {
+      state.data = {};
+      state.status = {};
+      state.error = {};
     },
   },
   extraReducers: (builder) => {

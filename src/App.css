@@ -93,9 +93,6 @@ p {
 }
 
 @media only screen and (max-width:768px) {
-  body {
-    background: skyblue;
-  }
 
   .content_container {
     display: grid;

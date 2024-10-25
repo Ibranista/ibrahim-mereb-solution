@@ -19,7 +19,7 @@ function Tabs() {
   }, [dispatch, selectedTab, data]);
 
   const clearCacheDataHandler = (e: any) => {
-    dispatch(clearCache(selectedTab));
+    dispatch(clearCache());
     e.preventDefault();
   }
 
@@ -45,13 +45,13 @@ function Tabs() {
   return (
     <section className="content_container">
       <div className="tab_container">
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <button
-            key={tab}
+            key={index}
             onClick={() => setSelectedTab(tab)}
             className={`tabs ${selectedTab === tab ? 'active_tab' : 'tab_item'}`}
           >
-            Tab {tab.split('/')[0]}
+            Tab {index + 1}
           </button>
         ))}
       </div>
