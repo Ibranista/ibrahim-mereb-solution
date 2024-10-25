@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to Mereb Technologies, a cutting-edge web development project designed to showcase efficient state management and data fetching techniques. This README.md file provides an overview of the project's structure, technologies used, and key features implemented.
+This README.md file provides an overview of the project's structure, technologies used, and key features implemented.
 
 ## Technologies Used
 
