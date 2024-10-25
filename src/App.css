@@ -121,3 +121,19 @@ p {
     position: relative;
   }
 }
+
+@media only screen and (max-width:325px) {
+  .content_container {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    grid-column: unset;
+  }
+
+  .tab_container {
+    flex-direction: row;
+    height: auto;
+    height: 50px;
+  }
+}
